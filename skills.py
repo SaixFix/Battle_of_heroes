@@ -50,11 +50,11 @@ class FuryPunch(Skill):
     damage = 12
 
     def skill_effect(self) -> str:
-        # TODO логика использования скилла -> return str
-        # TODO в классе нам доступны экземпляры user и target - можно использовать любые их методы
-        # TODO именно здесь происходит уменшение стамины у игрока применяющего умение и
-        # TODO уменьшение здоровья цели.
-        # TODO результат применения возвращаем строкой
+        """логика использования скилла -> return str
+        в классе нам доступны экземпляры user и target - можно использовать любые их методы
+        именно здесь происходит уменшение стамины у игрока применяющего умение и
+        уменьшение здоровья цели.
+        результат применения возвращаем строкой"""
         self.user.stamina -= self.required_stamina
         self.target.get_damage(self.damage)
         return f'{self.user.name} использует {self.name} и наносит {self.damage} урона сопернику'
@@ -90,8 +90,6 @@ class HardShot(Skill):
         """
         self.target = target
         self.user = user
-        print(user.stamina)
-        print(self.required_stamina)
 
         if user.stamina > self.required_stamina:
             return self.skill_effect()
