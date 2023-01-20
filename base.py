@@ -84,9 +84,11 @@ class Arena(metaclass=BaseSingleton):
         получаем результат от функции self.player.hit
         запускаем следующий ход
         возвращаем результат удара строкой"""
-        result = self.player.hit(self.enemy)
-        self.next_turn()
-        return result
+
+        player_hit = self.player.hit(self.enemy)
+        next_turn = self.next_turn()
+        result = [player_hit, next_turn]
+        return ' '.join(result)
 
     def player_use_skill(self):
         """КНОПКА ИГРОК ИСПОЛЬЗУЕТ УМЕНИЕ

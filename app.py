@@ -37,10 +37,8 @@ def hit():
     # TODO если игра не идет - пропускаем срабатывание метода (простот рендерим шаблон с текущими данными)
     if arena.game_is_running:
         result = arena.player_hit()
-        print(result)
     else:
         result = arena.battle_result
-
     return render_template('fight.html', heroes=heroes, result=result)
 
 
